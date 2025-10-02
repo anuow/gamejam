@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://cm1t2mg5pjx8j"]
+
+[ext_resource type="Texture2D" uid="uid://dbkxaqwgor5ah" path="res://assets/sprites/slime_green.png" id="1_55jtl"]
+[ext_resource type="Script" uid="uid://dflfmfadymysh" path="res://scripts/enemy.gd" id="1_mpr68"]
+[ext_resource type="PackedScene" uid="uid://ce2ij3w5p8jf7" path="res://scenes/killzone.tscn" id="2_mpr68"]
+[ext_resource type="PackedScene" uid="uid://gsjfx8m35acp" path="res://scenes/health_bar.tscn" id="6_iwav8"]
+[ext_resource type="PackedScene" uid="uid://c6l52jppq61ff" path="res://scenes/health_component.tscn" id="7_1i2q2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft8do"]
+atlas = ExtResource("1_55jtl")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5wwv6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft8do")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwav8"]
+size = Vector2(9, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55jtl"]
+size = Vector2(4, 13)
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_mpr68")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5wwv6")
+
+[node name="killzone" parent="." instance=ExtResource("2_mpr68")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_iwav8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_55jtl")
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="muzzle" type="Marker2D" parent="."]
+position = Vector2(3, 5)
+
+[node name="HealthComponent" parent="." instance=ExtResource("7_1i2q2")]
+
+[node name="HealthBar" parent="." instance=ExtResource("6_iwav8")]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(16, 16)
+offset_left = -12.0
+offset_top = -25.0
+offset_right = 13.0
+offset_bottom = 2.0
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
