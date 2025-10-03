@@ -1,0 +1,65 @@
+[gd_scene load_steps=12 format=3 uid="uid://dy2pvbm1anj03"]
+
+[ext_resource type="Script" uid="uid://bu165ynmauuca" path="res://scripts/john.gd" id="1_r0ebv"]
+[ext_resource type="Texture2D" uid="uid://b7qad8vjn38xp" path="res://assets/sprites/character-Sheet.png" id="2_r0ebv"]
+[ext_resource type="Script" uid="uid://c5kkknixp06eb" path="res://scripts/player_bullet_pool.gd" id="3_af6mu"]
+[ext_resource type="PackedScene" uid="uid://w2hvgdra6mo2" path="res://scenes/bullet.tscn" id="4_bitlx"]
+[ext_resource type="PackedScene" uid="uid://c6l52jppq61ff" path="res://scenes/health_component.tscn" id="5_fsnvj"]
+[ext_resource type="Texture2D" uid="uid://ch3w8q6lgyoea" path="res://assets/sprites/health bar/blackh.png" id="7_mxu6f"]
+[ext_resource type="Texture2D" uid="uid://dd27lxrn1pvti" path="res://assets/sprites/health bar/red.png" id="8_5sr6c"]
+[ext_resource type="Script" uid="uid://be2viqv206as" path="res://scripts/texture_progress_bar.gd" id="9_j1e1n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxisy"]
+size = Vector2(8, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0ebv"]
+atlas = ExtResource("2_r0ebv")
+region = Rect2(64, 48, 64, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fsnvj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0ebv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="John" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_r0ebv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
+visibility_layer = 2
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_uxisy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.0000019, -12.000002)
+scale = Vector2(1.234375, 1.2916666)
+sprite_frames = SubResource("SpriteFrames_fsnvj")
+animation = &"idle"
+
+[node name="muzzle" type="Node2D" parent="." groups=["player"]]
+position = Vector2(11, 0)
+
+[node name="PlayerBulletPool" type="Node" parent="."]
+script = ExtResource("3_af6mu")
+bullet_scene = ExtResource("4_bitlx")
+
+[node name="HealthComponent" parent="." instance=ExtResource("5_fsnvj")]
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -30.0
+offset_top = -31.0
+offset_right = 34.0
+offset_bottom = -15.0
+texture_under = ExtResource("7_mxu6f")
+texture_progress = ExtResource("8_5sr6c")
+script = ExtResource("9_j1e1n")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfpcv5rqjkgt"]
+
+[ext_resource type="Script" uid="uid://mgrm2rqaq8hj" path="res://scripts/enemy_bullet.gd" id="1_qx7rs"]
+[ext_resource type="Texture2D" uid="uid://bn8sw6chirrme" path="res://assets/sprites/bullet2.png" id="2_38r62"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gee14"]
+radius = 2.0
+
+[node name="EnemyBullet" type="Area2D"]
+script = ExtResource("1_qx7rs")
+speed = 300.0
+damage = 35.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.9604645e-08, -1.4551915e-11)
+scale = Vector2(1.110473, 1.0000762)
+texture = ExtResource("2_38r62")
+region_enabled = true
+region_rect = Rect2(5, 5, 5, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gee14")
+
+[node name="DistroyTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="timeout" from="DistroyTimer" to="." method="_on_distroy_timer_timeout"]
