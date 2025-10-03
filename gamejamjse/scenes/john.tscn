@@ -1,23 +1,70 @@
-[gd_scene load_steps=12 format=3 uid="uid://dy2pvbm1anj03"]
+[gd_scene load_steps=23 format=3 uid="uid://dy2pvbm1anj03"]
 
 [ext_resource type="Script" uid="uid://bu165ynmauuca" path="res://scripts/john.gd" id="1_r0ebv"]
 [ext_resource type="Texture2D" uid="uid://b7qad8vjn38xp" path="res://assets/sprites/character-Sheet.png" id="2_r0ebv"]
+[ext_resource type="Texture2D" uid="uid://djnhc2qm43vls" path="res://assets/sprites/jump.png" id="3_5sr6c"]
 [ext_resource type="Script" uid="uid://c5kkknixp06eb" path="res://scripts/player_bullet_pool.gd" id="3_af6mu"]
 [ext_resource type="PackedScene" uid="uid://w2hvgdra6mo2" path="res://scenes/bullet.tscn" id="4_bitlx"]
+[ext_resource type="Texture2D" uid="uid://c75ej14t3yrty" path="res://assets/sprites/walk-Sheet.png" id="4_j1e1n"]
 [ext_resource type="PackedScene" uid="uid://c6l52jppq61ff" path="res://scenes/health_component.tscn" id="5_fsnvj"]
 [ext_resource type="Texture2D" uid="uid://ch3w8q6lgyoea" path="res://assets/sprites/health bar/blackh.png" id="7_mxu6f"]
 [ext_resource type="Texture2D" uid="uid://dd27lxrn1pvti" path="res://assets/sprites/health bar/red.png" id="8_5sr6c"]
 [ext_resource type="Script" uid="uid://be2viqv206as" path="res://scripts/texture_progress_bar.gd" id="9_j1e1n"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxisy"]
-size = Vector2(8, 31)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sr6c"]
+atlas = ExtResource("2_r0ebv")
+region = Rect2(460, 66, 46, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1e1n"]
+atlas = ExtResource("2_r0ebv")
+region = Rect2(836, 64, 57, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0ebv"]
 atlas = ExtResource("2_r0ebv")
 region = Rect2(64, 48, 64, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_31jeo"]
+atlas = ExtResource("3_5sr6c")
+region = Rect2(77, 64, 38, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0tbw"]
+atlas = ExtResource("4_j1e1n")
+region = Rect2(74, 66, 43, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umru3"]
+atlas = ExtResource("4_j1e1n")
+region = Rect2(265, 66, 43, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_makqm"]
+atlas = ExtResource("4_j1e1n")
+region = Rect2(458, 66, 43, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cw6qu"]
+atlas = ExtResource("4_j1e1n")
+region = Rect2(648, 66, 43, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwj1h"]
+atlas = ExtResource("4_j1e1n")
+region = Rect2(841, 66, 43, 33)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_fsnvj"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sr6c")
+}],
+"loop": true,
+"name": &"aim_straight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1e1n")
+}],
+"loop": true,
+"name": &"aim_up",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r0ebv")
@@ -26,25 +73,49 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31jeo")
+}],
 "loop": true,
-"name": &"new_animation",
+"name": &"jump",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0tbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umru3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_makqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cw6qu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwj1h")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5sr6c"]
+size = Vector2(8, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxisy"]
+size = Vector2(8, 21)
 
 [node name="John" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_r0ebv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
-visibility_layer = 2
-position = Vector2(1, -0.5)
-shape = SubResource("RectangleShape2D_uxisy")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1.0000019, -12.000002)
-scale = Vector2(1.234375, 1.2916666)
+position = Vector2(4, -11.999999)
+scale = Vector2(0.9459484, 1.0649747)
 sprite_frames = SubResource("SpriteFrames_fsnvj")
-animation = &"idle"
+animation = &"aim_straight"
 
 [node name="muzzle" type="Node2D" parent="." groups=["player"]]
 position = Vector2(11, 0)
@@ -56,10 +127,21 @@ bullet_scene = ExtResource("4_bitlx")
 [node name="HealthComponent" parent="." instance=ExtResource("5_fsnvj")]
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
-offset_left = -30.0
-offset_top = -31.0
-offset_right = 34.0
-offset_bottom = -15.0
+offset_left = -26.0
+offset_top = -74.0
+offset_right = 38.0
+offset_bottom = -58.0
 texture_under = ExtResource("7_mxu6f")
 texture_progress = ExtResource("8_5sr6c")
 script = ExtResource("9_j1e1n")
+
+[node name="hitbox" type="Area2D" parent="." groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(1, -12)
+shape = SubResource("RectangleShape2D_5sr6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
+visibility_layer = 2
+position = Vector2(1, -11)
+shape = SubResource("RectangleShape2D_uxisy")

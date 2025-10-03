@@ -1,0 +1,111 @@
+[gd_scene load_steps=18 format=3 uid="uid://d1r2ddovfudpn"]
+
+[ext_resource type="PackedScene" uid="uid://c6l52jppq61ff" path="res://scenes/health_component.tscn" id="1_h55vt"]
+[ext_resource type="Script" uid="uid://b2t8s7bdoy67e" path="res://scripts/anxiety_boss.gd" id="1_rcpml"]
+[ext_resource type="Texture2D" uid="uid://ch3w8q6lgyoea" path="res://assets/sprites/health bar/blackh.png" id="2_rcpml"]
+[ext_resource type="Texture2D" uid="uid://dd27lxrn1pvti" path="res://assets/sprites/health bar/red.png" id="3_iu0wq"]
+[ext_resource type="Script" uid="uid://be2viqv206as" path="res://scripts/texture_progress_bar.gd" id="4_ksjac"]
+[ext_resource type="Texture2D" uid="uid://c8kugj1r880re" path="res://assets/sprites/Undead executioner puppet/png/idle2.png" id="6_iu0wq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksjac"]
+atlas = ExtResource("6_iu0wq")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxro7"]
+atlas = ExtResource("6_iu0wq")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n23yw"]
+atlas = ExtResource("6_iu0wq")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6bo5"]
+atlas = ExtResource("6_iu0wq")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww0wn"]
+atlas = ExtResource("6_iu0wq")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7knn3"]
+atlas = ExtResource("6_iu0wq")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyu3j"]
+atlas = ExtResource("6_iu0wq")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahgii"]
+atlas = ExtResource("6_iu0wq")
+region = Rect2(300, 100, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f0drc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksjac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxro7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n23yw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6bo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww0wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7knn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyu3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahgii")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_euilf"]
+size = Vector2(18, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iu0wq"]
+size = Vector2(446, 79)
+
+[node name="AnxietyBoss" type="CharacterBody2D"]
+script = ExtResource("1_rcpml")
+
+[node name="HealthComponent" parent="." instance=ExtResource("1_h55vt")]
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -26.0
+offset_top = -74.0
+offset_right = 38.0
+offset_bottom = -58.0
+texture_under = ExtResource("2_rcpml")
+texture_progress = ExtResource("3_iu0wq")
+script = ExtResource("4_ksjac")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f0drc")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.13911581
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, -1)
+shape = SubResource("RectangleShape2D_euilf")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(7, -1.5)
+shape = SubResource("RectangleShape2D_iu0wq")

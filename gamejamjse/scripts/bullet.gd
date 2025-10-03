@@ -4,7 +4,7 @@ extends Area2D
 @export var damage: float = 10.0 # <-- ADDED DAMAGE VARIABLE
 
 var move_dir: Vector2 = Vector2.ZERO
-var owner_group: String = ""
+var owner_group: String 
 
 @onready var distroy_timer: Timer = $DistroyTimer
 
