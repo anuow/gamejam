@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://decama6w22dc6"]
+
+[ext_resource type="Script" uid="uid://dk3s3mdswox87" path="res://Spike_spawner.gd" id="1_gf172"]
+[ext_resource type="PackedScene" uid="uid://oigg3itt4jth" path="res://scenes/falling_spikes.tscn" id="2_wtgal"]
+
+[node name="Spikespawner" type="Node2D"]
+script = ExtResource("1_gf172")
+spike_scene = ExtResource("2_wtgal")
+
+[node name="Timer" type="Timer" parent="."]
