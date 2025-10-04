@@ -2,7 +2,7 @@
 extends Area2D
 
 @export var speed: float = 200.0
-@export var damage: float = 10.0 # <-- ADDED DAMAGE VARIABLE
+@export var damage: float = 10 # <-- ADDED DAMAGE VARIABLE
 
 var move_dir: Vector2 = Vector2.ZERO
 var owner_group: String = ""
