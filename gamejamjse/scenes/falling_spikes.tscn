@@ -4,13 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://celyd6ruhayol" path="res://assets/sprites/16-bit-spike-Sheet.png" id="1_v12vm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gi8wp"]
-size = Vector2(20, 269)
+size = Vector2(19, 168)
 
 [node name="FallingSpikes" type="Node2D"]
 script = ExtResource("1_2iqdx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 7)
+position = Vector2(-1.1920929e-07, 6.9999995)
+scale = Vector2(1.2, 1)
 texture = ExtResource("1_v12vm")
 region_enabled = true
 region_rect = Rect2(32.331474, 0, 15.46785, 14.065107)
@@ -18,13 +19,16 @@ region_rect = Rect2(32.331474, 0, 15.46785, 14.065107)
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
-polygon = PackedVector2Array(0, 12, -8, 0, 8, 0)
+position = Vector2(5.9604645e-08, 0)
+scale = Vector2(1.8359375, 1.5416666)
+polygon = PackedVector2Array(-3.2465508e-08, 8.432433, -4.9021273, 0, 4.9021273, 0)
 
 [node name="PlayerDetect" type="Area2D" parent="."]
+position = Vector2(0, -2)
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
-position = Vector2(0, 134.5)
+position = Vector2(0.5, 86)
 shape = SubResource("RectangleShape2D_gi8wp")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
