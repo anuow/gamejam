@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://hu1jna3x3bps"]
+
+[ext_resource type="Texture2D" uid="uid://dacv5dcxifr7v" path="res://assets/sprites/anxiety boss-Sheet.png" id="1_ijr27"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kyaj"]
+atlas = ExtResource("1_ijr27")
+region = Rect2(0, 0, 128, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1e2r"]
+atlas = ExtResource("1_ijr27")
+region = Rect2(128, 0, 128, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xw7y"]
+atlas = ExtResource("1_ijr27")
+region = Rect2(256, 0, 128, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk0li"]
+atlas = ExtResource("1_ijr27")
+region = Rect2(384, 0, 128, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wewp"]
+atlas = ExtResource("1_ijr27")
+region = Rect2(512, 0, 128, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v60j"]
+atlas = ExtResource("1_ijr27")
+region = Rect2(640, 0, 128, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsr35"]
+atlas = ExtResource("1_ijr27")
+region = Rect2(768, 0, 128, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_booat"]
+atlas = ExtResource("1_ijr27")
+region = Rect2(896, 0, 128, 107)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qg8pk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kyaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1e2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xw7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sk0li")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wewp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v60j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsr35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_booat")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0275"]
+size = Vector2(113, 202)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(198.25002, 156.5)
+scale = Vector2(3.074219, 2.906542)
+sprite_frames = SubResource("SpriteFrames_qg8pk")
+autoplay = "default"
+frame_progress = 0.794978
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(213.5, 182)
+shape = SubResource("RectangleShape2D_a0275")
