@@ -1,6 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://hu1jna3x3bps"]
+[gd_scene load_steps=17 format=3 uid="uid://hu1jna3x3bps"]
 
+[ext_resource type="Script" uid="uid://r640ghtug1sf" path="res://scripts/anxi-boss.gd" id="1_8v60j"]
 [ext_resource type="Texture2D" uid="uid://dacv5dcxifr7v" path="res://assets/sprites/anxiety boss-Sheet.png" id="1_ijr27"]
+[ext_resource type="PackedScene" uid="uid://c6l52jppq61ff" path="res://scenes/health_component.tscn" id="3_fsr35"]
+[ext_resource type="Texture2D" uid="uid://ch3w8q6lgyoea" path="res://assets/sprites/health bar/blackh.png" id="4_booat"]
+[ext_resource type="Texture2D" uid="uid://dd27lxrn1pvti" path="res://assets/sprites/health bar/red.png" id="5_qg8pk"]
+[ext_resource type="Script" uid="uid://be2viqv206as" path="res://scripts/texture_progress_bar.gd" id="6_a0275"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7kyaj"]
 atlas = ExtResource("1_ijr27")
@@ -67,19 +72,45 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0275"]
-size = Vector2(113, 202)
+size = Vector2(25, 205.25)
 
-[node name="AnimatableBody2D" type="AnimatableBody2D"]
+[node name="anxi-boss" type="CharacterBody2D" node_paths=PackedStringArray("muzzles")]
+script = ExtResource("1_8v60j")
+muzzles = [NodePath("muzzle"), NodePath("muzzle2"), NodePath("muzzle3")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(198.25002, 156.5)
-scale = Vector2(3.074219, 2.906542)
+position = Vector2(198.375, 156.25)
+scale = Vector2(3.0996096, 2.9205608)
 sprite_frames = SubResource("SpriteFrames_qg8pk")
 autoplay = "default"
-frame_progress = 0.794978
+frame_progress = 0.2911569
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(213.5, 182)
+position = Vector2(201.5, 184.375)
 shape = SubResource("RectangleShape2D_a0275")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_fsr35")]
+max_health = 500.0
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = 178.0
+offset_top = 54.0
+offset_right = 242.0
+offset_bottom = 70.0
+max_value = 500.0
+texture_under = ExtResource("4_booat")
+texture_progress = ExtResource("5_qg8pk")
+script = ExtResource("6_a0275")
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="muzzle" type="Marker2D" parent="."]
+position = Vector2(113, -3)
+
+[node name="muzzle2" type="Marker2D" parent="."]
+position = Vector2(-256, -3)
+
+[node name="muzzle3" type="Marker2D" parent="."]
+position = Vector2(-653, -1)
