@@ -1,0 +1,98 @@
+[gd_scene load_steps=15 format=3 uid="uid://dwpusgc7ja7gk"]
+
+[ext_resource type="Script" uid="uid://du3m0xycs47ge" path="res://scripts/spider.gd" id="1_d613k"]
+[ext_resource type="PackedScene" uid="uid://ce2ij3w5p8jf7" path="res://scenes/killzone.tscn" id="1_qrebf"]
+[ext_resource type="PackedScene" uid="uid://c6l52jppq61ff" path="res://scenes/health_component.tscn" id="2_1yt70"]
+[ext_resource type="Texture2D" uid="uid://beunld70xa6k2" path="res://assets/sprites/spiderboss-Sheet.png" id="2_evcmw"]
+[ext_resource type="PackedScene" uid="uid://gsjfx8m35acp" path="res://scenes/health_bar.tscn" id="5_evcmw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txxy0"]
+atlas = ExtResource("2_evcmw")
+region = Rect2(0, 0, 107, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdplg"]
+atlas = ExtResource("2_evcmw")
+region = Rect2(0, 48, 107, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_047qd"]
+atlas = ExtResource("2_evcmw")
+region = Rect2(0, 96, 107, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wj5t3"]
+atlas = ExtResource("2_evcmw")
+region = Rect2(0, 144, 107, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wghsh"]
+atlas = ExtResource("2_evcmw")
+region = Rect2(0, 192, 107, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1byya"]
+atlas = ExtResource("2_evcmw")
+region = Rect2(0, 240, 107, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_it4vu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txxy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdplg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_047qd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wj5t3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wghsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1byya")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qx0x"]
+size = Vector2(34.5, 13.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evcmw"]
+size = Vector2(7, 23)
+
+[node name="spider" type="CharacterBody2D"]
+script = ExtResource("1_d613k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5607477, 0.6979166)
+sprite_frames = SubResource("SpriteFrames_it4vu")
+autoplay = "default"
+frame = 2
+frame_progress = 0.43188992
+
+[node name="killzone" parent="." instance=ExtResource("1_qrebf")]
+position = Vector2(-38, 17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(40, -18.125)
+shape = SubResource("RectangleShape2D_8qx0x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 3.5)
+shape = SubResource("RectangleShape2D_evcmw")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_1yt70")]
+
+[node name="muzzle" type="Marker2D" parent="."]
+position = Vector2(3, 5)
+
+[node name="HealthBar" parent="." instance=ExtResource("5_evcmw")]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(16, 16)
+offset_left = -9.0
+offset_top = -20.0
+offset_right = 16.0
+offset_bottom = 7.0
