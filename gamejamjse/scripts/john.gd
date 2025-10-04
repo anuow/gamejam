@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 
-const SPEED = 200.0
-const JUMP_VELOCITY = -300.0
+const SPEED = 150
+const JUMP_VELOCITY = -300
 const BULLET_SCENE = preload("res://scenes/bullet.tscn")
-@export var shoot_rate : float = 0.1
+@export var shoot_rate : float = 0.5
 var last_shoot_time : float = 0.0
 const GRAVITY = Vector2(0, 980)
 
@@ -14,19 +14,15 @@ const GRAVITY = Vector2(0, 980)
 @onready var health_bar = $HealthBar
 @onready var camera: Camera2D = $Camera2D
 
-
 var is_dead: bool = false
 
-
-
 func _on_died():
-	# Logic from your old die() function
 	is_dead = true
 	sprite.modulate = Color(1, 0, 0) # Tint red to show death
 	
 	# Logic from the new health system
 	print(self.name + " has died!")
-	get_node("CollisionShape2D").disabled = true # Stop collisions
+	$CollisionShape2D.set_deferred("disabled", true)
 	await get_tree().create_timer(1.0).timeout # Wait 1 second
 	get_tree().reload_current_scene() # Remove the character from the game
 
@@ -57,6 +53,7 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
+	
 	if direction:
 		velocity.x = direction * SPEED
 		sprite.play("walk")
@@ -84,8 +81,6 @@ func _process(_delta: float) -> void:
 	
 	if aim_angle < -30:   # aiming upward
 		sprite.play("aim_up")
-	elif aim_angle > 30:  # aiming downward
-		sprite.play("aim_down")
 	else:
 		sprite.play("aim_straight")
 
@@ -118,6 +113,9 @@ func _shoot():
 	# Add the new bullet to the main game world
 	get_tree().current_scene.add_child(bullet)
 	
+func die():
+	is_dead = true
+	sprite.modulate = Color(1, 0, 0) # optional: tint red to show death
 
 	
 
