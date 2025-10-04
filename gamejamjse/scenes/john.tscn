@@ -106,19 +106,25 @@ animations = [{
 size = Vector2(8, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxisy"]
-size = Vector2(8, 21)
+size = Vector2(8, 26.5)
 
 [node name="John" type="CharacterBody2D" groups=["player"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_r0ebv")
+shoot_rate = 0.2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, -11.999999)
+position = Vector2(0, -14)
 scale = Vector2(0.9459484, 1.0649747)
 sprite_frames = SubResource("SpriteFrames_fsnvj")
-animation = &"aim_straight"
+animation = &"walk"
+autoplay = "walk"
+frame = 3
+frame_progress = 0.2540423
 
 [node name="muzzle" type="Node2D" parent="." groups=["player"]]
-position = Vector2(11, 0)
+position = Vector2(6, -15)
 
 [node name="PlayerBulletPool" type="Node" parent="."]
 script = ExtResource("3_af6mu")
@@ -128,9 +134,9 @@ bullet_scene = ExtResource("4_bitlx")
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
 offset_left = -26.0
-offset_top = -74.0
+offset_top = -49.0
 offset_right = 38.0
-offset_bottom = -58.0
+offset_bottom = -33.0
 texture_under = ExtResource("7_mxu6f")
 texture_progress = ExtResource("8_5sr6c")
 script = ExtResource("9_j1e1n")
@@ -143,5 +149,5 @@ shape = SubResource("RectangleShape2D_5sr6c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 visibility_layer = 2
-position = Vector2(1, -11)
+position = Vector2(1, -13.75)
 shape = SubResource("RectangleShape2D_uxisy")
