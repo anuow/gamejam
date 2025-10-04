@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 const BULLET_SCENE = preload("res://scenes/enemy_bullet.tscn")
 # --- Shooting Variables ---
-@export var shoot_cooldown = 1 # Time between shots.
+@export var shoot_cooldown = 0.5 # Time between shots.
 
 # --- Node References ---
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -64,17 +64,8 @@ func _physics_process(delta):
 
 	# --- AI Logic ---
 	var direction_to_player = global_position.direction_to(player.global_position)
-	var distance_to_player = global_position.distance_to(player.global_position)
-
-	# Movement: Move towards player if outside the 'follow_distance'.
-	if distance_to_player > follow_distance:
-		velocity.x = direction_to_player.x * speed
-	else:
-		# If too close, stop moving.
-		velocity.x = move_toward(velocity.x, 0, speed)
+	var _distance_to_player = global_position.distance_to(player.global_position)
 	
-	# --- Visuals ---
-	# Flip sprite and muzzle to face the player.
 	if direction_to_player.x > 0:
 		sprite.flip_h = false
 		muzzle.position.x = abs(muzzle.position.x)
