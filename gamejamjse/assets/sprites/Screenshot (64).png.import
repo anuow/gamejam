@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jqik8auyqf6l"
-path="res://.godot/imported/summonAppear.png-20b2cb03f47269745b3107969a12901f.ctex"
+uid="uid://mxbrt3q8qept"
+path="res://.godot/imported/Screenshot (64).png-bcd8dcd2ededed7b7f20cc712a75abb0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Undead executioner puppet/png/summonAppear.png"
-dest_files=["res://.godot/imported/summonAppear.png-20b2cb03f47269745b3107969a12901f.ctex"]
+source_file="res://assets/sprites/Screenshot (64).png"
+dest_files=["res://.godot/imported/Screenshot (64).png-bcd8dcd2ededed7b7f20cc712a75abb0.ctex"]
 
 [params]
 

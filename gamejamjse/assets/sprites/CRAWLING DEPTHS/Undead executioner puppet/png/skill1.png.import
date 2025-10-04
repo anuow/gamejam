@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8kugj1r880re"
-path="res://.godot/imported/idle2.png-86984986092f82d8d9f64f76dacc1e0a.ctex"
+uid="uid://l104din8aqce"
+path="res://.godot/imported/skill1.png-48f5b994a38af00e91b5afc35113c205.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Undead executioner puppet/png/idle2.png"
-dest_files=["res://.godot/imported/idle2.png-86984986092f82d8d9f64f76dacc1e0a.ctex"]
+source_file="res://assets/sprites/CRAWLING DEPTHS/Undead executioner puppet/png/skill1.png"
+dest_files=["res://.godot/imported/skill1.png-48f5b994a38af00e91b5afc35113c205.ctex"]
 
 [params]
 

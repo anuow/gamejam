@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4w3a7tqshxhg"
-path="res://.godot/imported/summonDeath.png-d7ae51cd59417f0abb61d2cea3976a71.ctex"
+uid="uid://c8kugj1r880re"
+path="res://.godot/imported/idle2.png-9a71ef0734f5e6df313ed457ca9f491b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Undead executioner puppet/png/summonDeath.png"
-dest_files=["res://.godot/imported/summonDeath.png-d7ae51cd59417f0abb61d2cea3976a71.ctex"]
+source_file="res://assets/sprites/CRAWLING DEPTHS/Undead executioner puppet/png/idle2.png"
+dest_files=["res://.godot/imported/idle2.png-9a71ef0734f5e6df313ed457ca9f491b.ctex"]
 
 [params]
 

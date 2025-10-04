@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfqpka0t77uik"
-path="res://.godot/imported/idle.png-0665840554a883d6647e1b238c948c7c.ctex"
+uid="uid://d3ewdilperovc"
+path="res://.godot/imported/summon.png-b41b47d4b1a7f6910c213d27b3bd00fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Undead executioner puppet/png/idle.png"
-dest_files=["res://.godot/imported/idle.png-0665840554a883d6647e1b238c948c7c.ctex"]
+source_file="res://assets/sprites/CRAWLING DEPTHS/Undead executioner puppet/png/summon.png"
+dest_files=["res://.godot/imported/summon.png-b41b47d4b1a7f6910c213d27b3bd00fb.ctex"]
 
 [params]
 
