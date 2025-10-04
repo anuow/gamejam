@@ -1,0 +1,95 @@
+extends CharacterBody2D
+
+# --- Movement & AI Variables ---
+@export var speed = 75.0
+@export var follow_distance = 40 # Will stop moving when closer than this distance.
+@export var attack_range = 400.0   # Will only shoot when within this range.
+
+const BULLET_SCENE = preload("res://scenes/enemy_bullet.tscn")
+# --- Shooting Variables ---
+@export var shoot_cooldown = 0.5 # Time between shots.
+
+# --- Node References ---
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@export var muzzles: Array[Marker2D]
+@onready var shoot_timer: Timer = $ShootTimer
+@onready var health_component = $HealthComponent
+@onready var health_bar = $HealthBar
+
+# --- State Variables ---
+var player = null
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var is_dead: bool = false
+
+func _on_died():
+	# Logic from your old die() function
+	is_dead = true
+	sprite.modulate = Color(1, 0, 0) # Tint red to show death
+	
+	# Logic from the new health system
+	print(self.name + " has died!")
+	get_node("CollisionShape2D").set_deferred("disabled", true) # Stop collisions
+	await get_tree().create_timer(1.0).timeout # Wait 1 second
+	queue_free() # Remove the character from the game
+
+func _ready():
+	# Find the player using the group you set up.
+	player = get_tree().get_first_node_in_group("player")
+	
+	# Configure and start the shooting timer.
+	shoot_timer.wait_time = shoot_cooldown
+	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
+	shoot_timer.start()
+	# Connect the health component's signals to functions
+	health_component.died.connect(self._on_died)
+	health_component.health_changed.connect(health_bar._on_health_changed)
+	
+	# Initialize the health bar
+	health_bar.initialize(health_component.max_health)
+	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST 
+
+func _physics_process(delta):
+	if is_dead:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+	# Apply gravity.
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+	# If the player doesn't exist or is dead, do nothing.
+	if not is_instance_valid(player):
+		velocity.x = 0
+		move_and_slide() # We still need to call this to apply gravity/stop movement
+		return
+
+	# --- AI Logic ---
+	var direction_to_player = global_position.direction_to(player.global_position)
+	var _distance_to_player = global_position.distance_to(player.global_position)
+	
+	if direction_to_player.x > 0:
+		sprite.flip_h = false
+	elif direction_to_player.x < 0:
+		sprite.flip_h = true
+
+	move_and_slide()
+
+
+func _on_shoot_timer_timeout():
+	if not is_instance_valid(player) or global_position.distance_to(player.global_position) > attack_range:
+		return
+
+	# Loop through every muzzle in our array
+	for current_muzzle in muzzles:
+		# Create a new bullet instance for this muzzle
+		var bullet = BULLET_SCENE.instantiate()
+		
+		# Configure the bullet using the current muzzle from the loop
+		bullet.owner_group = "enemy"
+		bullet.global_position = current_muzzle.global_position
+		
+		var shoot_dir = current_muzzle.global_position.direction_to(player.global_position)
+		bullet.move_dir = shoot_dir
+		
+		# Add the new bullet to the main game world
+		get_tree().root.add_child(bullet)
