@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://d1r2ddovfudpn"]
 
 [ext_resource type="Script" uid="uid://b2t8s7bdoy67e" path="res://scripts/anxiety_boss.gd" id="1_rcpml"]
-[ext_resource type="Texture2D" uid="uid://c8kugj1r880re" path="res://assets/sprites/Undead executioner puppet/png/idle2.png" id="6_iu0wq"]
+[ext_resource type="Texture2D" uid="uid://c8kugj1r880re" path="res://assets/sprites/CRAWLING DEPTHS/Undead executioner puppet/png/idle2.png" id="6_iu0wq"]
 [ext_resource type="PackedScene" uid="uid://ce2ij3w5p8jf7" path="res://scenes/killzone.tscn" id="7_ksjac"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ksjac"]
