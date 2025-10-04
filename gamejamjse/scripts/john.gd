@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 150
 const JUMP_VELOCITY = -300
 const BULLET_SCENE = preload("res://scenes/bullet.tscn")
-@export var shoot_rate : float = 0.5
+@export var shoot_rate : float = 0.2
 var last_shoot_time : float = 0.0
 const GRAVITY = Vector2(0, 980)
 
