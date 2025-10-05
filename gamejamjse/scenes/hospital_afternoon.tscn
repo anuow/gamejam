@@ -383,7 +383,3 @@ frame = 1
 libraries = {
 &"": SubResource("AnimationLibrary_34t46")
 }
-
-[node name="PlayerA" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_7sj3w")
-autoplay = true

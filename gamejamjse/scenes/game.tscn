@@ -1,12 +1,11 @@
 [gd_scene load_steps=20 format=3 uid="uid://dv5eftygisej7"]
 
-[ext_resource type="Script" uid="uid://bi1nefliau87w" path="res://scripts/level_1.gd" id="1_kvuet"]
 [ext_resource type="PackedScene" uid="uid://dy2pvbm1anj03" path="res://scenes/john.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cm1t2mg5pjx8j" path="res://scenes/Enemy.tscn" id="2_0tnpc"]
+[ext_resource type="Script" uid="uid://cdarvnvi2f7u0" path="res://scripts/camera_2d.gd" id="2_iywne"]
 [ext_resource type="Texture2D" uid="uid://i5rfjvknhyhj" path="res://assets/sprites/world_tileset.png" id="2_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://brwhpha25i7wb" path="res://assets/sprites/CRAWLING DEPTHS/Tileset.png" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://ce2ij3w5p8jf7" path="res://scenes/killzone.tscn" id="4_lbhrr"]
-[ext_resource type="AudioStream" uid="uid://c1eelsjjoek0k" path="res://Music/lvl1 boss.ogg" id="6_kvuet"]
 [ext_resource type="PackedScene" uid="uid://oigg3itt4jth" path="res://scenes/falling_spikes.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://d1r2ddovfudpn" path="res://scenes/anxiety_boss.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://dwpusgc7ja7gk" path="res://scenes/spider.tscn" id="8_vtaks"]
@@ -542,7 +541,6 @@ sources/1 = SubResource("TileSetAtlasSource_p57ef")
 size = Vector2(117, 97.5)
 
 [node name="lvl-1" type="Node2D"]
-script = ExtResource("1_kvuet")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = -953.0
@@ -561,7 +559,6 @@ position = Vector2(5388, -821)
 position = Vector2(4241, -557)
 camera = NodePath("../John/Camera2D")
 target_zoom = Vector2(1, 1)
-boss_music = ExtResource("6_kvuet")
 
 [node name="Enemys" type="Node" parent="." groups=["enemy"]]
 
@@ -608,7 +605,14 @@ position = Vector2(4394, -928)
 light_mask = 3
 visibility_layer = 3
 z_index = 5
-position = Vector2(6199, -565)
+position = Vector2(5800, -559)
+
+[node name="Camera2D2" type="Camera2D" parent="John"]
+position = Vector2(1, -15)
+zoom = Vector2(2, 2)
+limit_enabled = false
+position_smoothing_enabled = true
+script = ExtResource("2_iywne")
 
 [node name="killzone" parent="." instance=ExtResource("4_lbhrr")]
 position = Vector2(0, 39)
@@ -675,13 +679,10 @@ speed = 500
 position = Vector2(2291, 10)
 
 [node name="end" type="Area2D" parent="."]
-position = Vector2(3, 11)
 
 [node name="end" type="CollisionShape2D" parent="end"]
 position = Vector2(6477, -582)
 shape = SubResource("RectangleShape2D_dinhu")
-
-[connection signal="body_entered" from="end" to="." method="_on_end_body_entered"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
