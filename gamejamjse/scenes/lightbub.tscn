@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://docii1mg6bkbb"]
+
+[ext_resource type="Texture2D" uid="uid://d0rtwvobd6ldp" path="res://assets/sprites/Tilesetv3.png" id="1_ruci4"]
+
+[sub_resource type="Gradient" id="Gradient_hrcwv"]
+offsets = PackedFloat32Array(0, 0.79333335)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uabgo"]
+gradient = SubResource("Gradient_hrcwv")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_ruci4")
+region_enabled = true
+region_rect = Rect2(85, 374, 24, 31)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1.0000305, -0.9999771)
+rotation = -3.1389706
+scale = Vector2(3.0244572, 2.4117348)
+color = Color(0.9315997, 0.90402085, 0, 1)
+energy = 0.9
+range_z_min = -1020
+texture = SubResource("GradientTexture2D_uabgo")
