@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://hu1jna3x3bps" path="res://scenes/animatable_body_2d.tscn" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://cytpc2oth5ya2" path="res://scenes/boss_room_trigger.tscn" id="11_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://mxbrt3q8qept" path="res://assets/sprites/Screenshot (64).png" id="12_dinhu"]
+[ext_resource type="PackedScene" uid="uid://drped672xucwt" path="res://scenes/pause_menu.tscn" id="13_kvuet"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvuet"]
 texture = ExtResource("12_dinhu")
@@ -681,3 +682,7 @@ position = Vector2(6477, -582)
 shape = SubResource("RectangleShape2D_dinhu")
 
 [connection signal="body_entered" from="end" to="." method="_on_end_body_entered"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("13_kvuet")]

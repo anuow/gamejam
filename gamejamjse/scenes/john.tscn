@@ -128,9 +128,6 @@ position = Vector2(0, -14)
 scale = Vector2(0.9459484, 1.0649747)
 sprite_frames = SubResource("SpriteFrames_fsnvj")
 animation = &"walk"
-autoplay = "walk"
-frame = 3
-frame_progress = 0.2540423
 
 [node name="muzzle" type="Node2D" parent="." groups=["player"]]
 position = Vector2(6, -15)
