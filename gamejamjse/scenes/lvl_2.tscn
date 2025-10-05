@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://bi2xo2tpxiuw6"]
+[gd_scene load_steps=23 format=3 uid="uid://bi2xo2tpxiuw6"]
 
+[ext_resource type="Script" uid="uid://baq8pvhb35w8i" path="res://scripts/lvl_2.gd" id="1_3ykuj"]
 [ext_resource type="PackedScene" uid="uid://ds0dimfr0bdwo" path="res://scenes/torchlight.tscn" id="1_e8ep2"]
 [ext_resource type="Texture2D" uid="uid://brwhpha25i7wb" path="res://assets/sprites/CRAWLING DEPTHS/Tileset.png" id="1_ieorc"]
 [ext_resource type="PackedScene" uid="uid://dy2pvbm1anj03" path="res://scenes/john.tscn" id="2_djdqn"]
@@ -10,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://cm1t2mg5pjx8j" path="res://scenes/Enemy.tscn" id="9_v64py"]
 [ext_resource type="PackedScene" uid="uid://dwpusgc7ja7gk" path="res://scenes/spider.tscn" id="10_3ykuj"]
 [ext_resource type="PackedScene" uid="uid://ck8hbvu07tmm7" path="res://scenes/finalboss.tscn" id="11_3ykuj"]
+[ext_resource type="PackedScene" uid="uid://cytpc2oth5ya2" path="res://scenes/boss_room_trigger.tscn" id="12_ghoj8"]
+[ext_resource type="AudioStream" uid="uid://jhgunuakkly" path="res://Music/lvl-2 middle.ogg" id="13_6y0h7"]
+[ext_resource type="AudioStream" uid="uid://cegn08ym5cyyr" path="res://Music/lvl-2 boss.ogg" id="14_6y0h7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e8ep2"]
 texture = ExtResource("1_ieorc")
@@ -1250,6 +1254,7 @@ _data = {
 }
 
 [node name="lvl-2" type="Node2D"]
+script = ExtResource("1_3ykuj")
 
 [node name="environment" type="Node" parent="."]
 
@@ -1387,7 +1392,7 @@ position = Vector2(-41, 5898)
 light_mask = 3
 visibility_layer = 3
 z_index = 5
-position = Vector2(374, 7162)
+position = Vector2(383, 3249)
 fall_damage_threshold = 700.0
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
@@ -1466,3 +1471,17 @@ position = Vector2(1157, 671)
 
 [node name="boss" parent="." instance=ExtResource("11_3ykuj")]
 position = Vector2(924, 7049)
+
+[node name="BossRoomTrigger" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("12_ghoj8")]
+position = Vector2(749, 3418)
+rotation = 1.5707964
+camera = NodePath("")
+target_zoom = Vector2(1, 1)
+boss_music = ExtResource("13_6y0h7")
+
+[node name="BossRoomTrigger2" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("12_ghoj8")]
+position = Vector2(195, 6277)
+rotation = 1.5707964
+camera = NodePath("")
+target_zoom = Vector2(1, 1)
+boss_music = ExtResource("14_6y0h7")
