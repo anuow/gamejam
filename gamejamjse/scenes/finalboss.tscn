@@ -83,5 +83,5 @@ texture = SubResource("GradientTexture2D_tpsqw")
 position = Vector2(-100.75, 2.3125)
 shape = SubResource("RectangleShape2D_o3x23")
 
-[connection signal="body_entered" from="DialogueTriggerArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="DialogueTriggerArea" to="." method="_on_dialogue_trigger_area_body_entered"]
+[connection signal="body_entered" from="DialogueTriggerArea" to="." method="_on_area_2d_body_entered"]

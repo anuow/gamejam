@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dau6u3p37601h"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 28.0
+offset_right = 1145.0
+offset_bottom = 585.0
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "Game Design: Your Name
+Programming: Your Name
+Art & Animation: Artist Name
+Music: Composer Name
+Special Thanks: ...
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 949.0
+offset_top = 596.0
+offset_right = 1149.0
+offset_bottom = 645.0
+text = "Main Menu"

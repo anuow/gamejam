@@ -142,6 +142,3 @@ func die():
 	is_dead = true
 	sprite.modulate = Color(1, 0, 0) # optional: tint red to show death
 	
-
-	
-	

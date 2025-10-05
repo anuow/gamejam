@@ -60,7 +60,7 @@ shoot={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/HP_Afternoon.dialogue", "res://dialogue/bossfight.dialogue", "res://dialogue/HP_Afternoon2.dialogue", "res://dialogue/HP_Afternoon3.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogue/bossfight.dialogue", "res://Dialogue/HP_Afternoon.dialogue", "res://Dialogue/HP_Afternoon2.dialogue", "res://Dialogue/HP_Afternoon3.dialogue", "res://Dialogue/HP_Night.dialogue", "res://Dialogue/HP_Night2.dialogue", "res://Dialogue/good_ending.dialogue")
 
 [rendering]
 
