@@ -4,12 +4,12 @@ importer="dialogue_manager"
 importer_version=15
 type="Resource"
 uid="uid://3l42ykxq1qt0"
-path="res://.godot/imported/HP_Night2.dialogue-08c2537d327c11a6b24472c06be21c5d.tres"
+path="res://.godot/imported/HP_Night2.dialogue-e1a44add5e28f40b130a9bdace72e02b.tres"
 
 [deps]
 
-source_file="res://dialogue/HP_Night2.dialogue"
-dest_files=["res://.godot/imported/HP_Night2.dialogue-08c2537d327c11a6b24472c06be21c5d.tres"]
+source_file="res://Dialogue/HP_Night2.dialogue"
+dest_files=["res://.godot/imported/HP_Night2.dialogue-e1a44add5e28f40b130a9bdace72e02b.tres"]
 
 [params]
 

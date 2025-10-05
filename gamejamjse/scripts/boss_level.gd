@@ -89,12 +89,12 @@ func _on_dialogue_ended(_resource: DialogueResource):
 
 func _trigger_good_ending():
 	print("ENDING: Good")
-	SceneManager.change_scene("res://scenes/good_ending.tscn")
+	SceneManager.change_scene("res://scenes/GoodEnding.tscn")
 
 
 func _trigger_bad_ending():
 	print("ENDING: Bad")
-	SceneManager.change_scene("res://scenes/bad_ending.tscn")
+	SceneManager.change_scene("res://scenes/BadEnding.tscn")
 
 
 func _trigger_instakill_ending():
