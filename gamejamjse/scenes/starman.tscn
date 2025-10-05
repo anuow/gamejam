@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cp1ca8fh5ge55"]
+
+[ext_resource type="Script" uid="uid://cwjbbcgsxymov" path="res://scripts/starman.gd" id="1_4225o"]
+[ext_resource type="Texture2D" uid="uid://clrsrfep72c3p" path="res://assets/pngegg.png" id="2_ob1ev"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_urm05"]
+radius = 105.076164
+
+[sub_resource type="Gradient" id="Gradient_hrcwv"]
+offsets = PackedFloat32Array(0, 0.79333335)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4225o"]
+gradient = SubResource("Gradient_hrcwv")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="starman" type="Area2D"]
+script = ExtResource("1_4225o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.9999962, 0)
+scale = Vector2(0.22609374, 0.22359374)
+texture = ExtResource("2_ob1ev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 21)
+shape = SubResource("CircleShape2D_urm05")
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="Rotator" type="Node2D" parent="."]
+position = Vector2(0, 25)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1.0065818, 0.51633555)
+rotation = -3.1389706
+scale = Vector2(4.81578, 4.5781083)
+color = Color(1, 1, 0.8627451, 1)
+range_z_min = -1020
+texture = SubResource("GradientTexture2D_4225o")
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
