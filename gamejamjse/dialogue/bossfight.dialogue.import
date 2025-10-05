@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://de6ybx1slpdd6"
+path="res://.godot/imported/bossfight.dialogue-eb14fe2df4c0df41b680ca48e2ab9f2b.tres"
+
+[deps]
+
+source_file="res://dialogue/bossfight.dialogue"
+dest_files=["res://.godot/imported/bossfight.dialogue-eb14fe2df4c0df41b680ca48e2ab9f2b.tres"]
+
+[params]
+
+defaults=true
