@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://jmxt13y4lumr"]
+[gd_scene load_steps=6 format=3 uid="uid://jmxt13y4lumr"]
 
 [ext_resource type="Texture2D" uid="uid://bn8sw6chirrme" path="res://assets/sprites/bullet2.png" id="1_41j7l"]
 [ext_resource type="Script" uid="uid://c60cmgd68lhd7" path="res://scripts/ememy_projectile.gd" id="1_j5vbx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3m7n"]
 radius = 2.0844574
+
+[sub_resource type="Gradient" id="Gradient_hrcwv"]
+offsets = PackedFloat32Array(0, 0.79333335)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5xl3a"]
+gradient = SubResource("Gradient_hrcwv")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="EmemyProjectile" type="Area2D"]
 script = ExtResource("1_j5vbx")
@@ -24,5 +33,13 @@ shape = SubResource("CircleShape2D_q3m7n")
 [node name="LifetimeTimer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(7.6293945e-06, -9.536743e-07)
+rotation = -3.1389706
+scale = Vector2(3.0244572, 2.4117348)
+color = Color(1, 1, 0.8627451, 1)
+range_z_min = -1020
+texture = SubResource("GradientTexture2D_5xl3a")
 
 [connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout"]
