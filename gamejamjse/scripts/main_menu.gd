@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	get_tree().change_scene_to_file("res://scenes/hospital_nurse.tscn")
 
 func _on_options_pressed() -> void:
 	main_buttons.visible = false
