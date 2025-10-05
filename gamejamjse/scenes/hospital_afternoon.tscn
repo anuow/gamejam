@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cljv71bmbn1jq" path="res://assets/sprites/run/run4.png" id="9_oc5q8"]
 [ext_resource type="Texture2D" uid="uid://78rrytgl5c30" path="res://assets/sprites/run/run5.png" id="10_013lu"]
 [ext_resource type="Texture2D" uid="uid://dn0xusfo8fub6" path="res://assets/sprites/run/run6.png" id="11_lcqjm"]
-[ext_resource type="AudioStream" path="res://oggmusic/mainmenu.ogg" id="12_7sj3w"]
+[ext_resource type="AudioStream" uid="uid://wxoq8a7btual" path="res://Music/mainmenu.ogg" id="12_7sj3w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gadw1"]
 atlas = ExtResource("2_rsosu")
