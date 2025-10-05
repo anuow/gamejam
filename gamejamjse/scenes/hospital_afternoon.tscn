@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://prydpvep1syi"]
 
 [ext_resource type="Texture2D" uid="uid://b8f3fown3q4sg" path="res://assets/sprites/afternoon.png" id="1_d3hpb"]
-[ext_resource type="Script" uid="uid://hawphjnjjlmk" path="res://scripts/hospital_nurse.gd" id="1_rsosu"]
+[ext_resource type="Script" uid="uid://bs8rxxdd7lq24" path="res://scripts/hospital_afternoon.gd" id="1_nfp0d"]
 [ext_resource type="Texture2D" uid="uid://ylco6wexrmiw" path="res://assets/sprites/Caminando.png" id="2_rsosu"]
 [ext_resource type="Texture2D" uid="uid://dmjvjdvi4ws6q" path="res://assets/sprites/Caminando Rt.png" id="3_jujiy"]
 
@@ -157,10 +157,6 @@ tracks/1/keys = {
 "values": [Vector2(308.00003, 514), Vector2(308.00003, 514), Vector2(515, 510)]
 }
 
-[sub_resource type="Animation" id="Animation_uyk6w"]
-resource_name = "walk"
-length = 1.5
-
 [sub_resource type="Animation" id="Animation_8rfjc"]
 resource_name = "leave"
 length = 1.5
@@ -201,6 +197,10 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_uyk6w"]
+resource_name = "walk"
+length = 1.5
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_840f5"]
 _data = {
 &"RESET": SubResource("Animation_hk5xp"),
@@ -214,7 +214,7 @@ anchors_preset = 0
 offset_top = -4.0
 offset_right = 1150.0
 offset_bottom = 652.0
-script = ExtResource("1_rsosu")
+script = ExtResource("1_nfp0d")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
