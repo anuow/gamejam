@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://beqkegfjf5gkm"
+path="res://.godot/imported/Clair Obscur_ Expedition 33 Lumière [Official Music Video].mp3-37f8b580a683e798a3728a8e9a78dbc2.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Clair Obscur_ Expedition 33 Lumière [Official Music Video].mp3"
+dest_files=["res://.godot/imported/Clair Obscur_ Expedition 33 Lumière [Official Music Video].mp3-37f8b580a683e798a3728a8e9a78dbc2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
