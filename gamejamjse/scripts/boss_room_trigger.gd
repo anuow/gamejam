@@ -6,6 +6,11 @@ extends Area2D
 # The zoom level we want the camera to have in the boss room.
 @export var target_zoom: Vector2 = Vector2(1.5, 1.5)
 
+# --- ADD THIS LINE ---
+# The music track to play for the boss fight.
+@export var boss_music: AudioStream
+# --------------------
+
 # This flag ensures the trigger only fires once.
 var has_been_triggered: bool = false
 
@@ -24,15 +29,14 @@ func _on_body_entered(body: Node2D):
 	# Make sure your player node is in a group called "player".
 	if body.is_in_group("player"):
 		
-		print("Player entered the trigger area! Changing camera zoom.")
+		print("Player entered the boss area! Changing camera and music.")
 		
 		# Set the flag so this won't run again.
 		has_been_triggered = true
 		
-		# Change the Camera Zoom
-		#camera.zoom = target_zoom
+		# --- ADD THIS SECTION ---
+		# Change the Music using the MusicManager.
+		if boss_music:
+			MusicManager.play_music(boss_music)
+		# ------------------------
 		
-		# For a smoother zoom, comment the line above
-		var tween = get_tree().create_tween()
-		tween.set_trans(Tween.TRANS_SINE) # Makes the transition smooth
-		tween.tween_property(camera, "zoom", target_zoom, 2.0) # Zoom over 2 seconds
