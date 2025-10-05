@@ -4,12 +4,12 @@ importer="dialogue_manager"
 importer_version=15
 type="Resource"
 uid="uid://dg8wpuvp7lwt7"
-path="res://.godot/imported/good_ending.dialogue-96a828694799b72bc550bac9ed66526c.tres"
+path="res://.godot/imported/good_ending.dialogue-f74f77f4a1dd4262f0e7870e9a1cc94e.tres"
 
 [deps]
 
-source_file="res://Dialogue/good_ending.dialogue"
-dest_files=["res://.godot/imported/good_ending.dialogue-96a828694799b72bc550bac9ed66526c.tres"]
+source_file="res://dialogue/good_ending.dialogue"
+dest_files=["res://.godot/imported/good_ending.dialogue-f74f77f4a1dd4262f0e7870e9a1cc94e.tres"]
 
 [params]
 
