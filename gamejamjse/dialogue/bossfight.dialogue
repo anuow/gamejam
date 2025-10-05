@@ -1,0 +1,111 @@
+# This dialogue file is structured into titled sections (e.g., ~ start).
+# Player choices emit a signal with a "type" that you can use to change the boss_mood score.
+
+~ start
+
+Boss: How was your descent? 
+Boss: You chose that path after all.
+- You donʼt get to ask me that question. [signal=choice_made, "aggressive"] => boss_response_1
+- Iʼve been descending all my life, this is nothing. [signal=choice_made, "aggressive"] => boss_response_1
+- Fuck you. [signal=choice_made, "instakill"] => instakill_ending
+
+~ boss_response_1
+
+Boss: Now there, donʼt be rude.
+Boss: Iʼm just stating facts. 
+Boss: This descent is different. 
+Boss: This is a descent of your own fortitude. 
+Boss: You decide its outcome and you will leave with the consequences.
+=> question_2
+
+
+~ question_2
+
+Boss: Now here you are,
+Boss: facing absolution.
+Boss: What do you consider yourself as?
+> I am worthless. I am nothing. I am beyond saving. Failure is a sweetness that allures me to its embrace and I submit willingly. [signal=choice_made, "desperate"] => question_3
+> I think Iʼm enough. I tried my best. I know I could have done better. But for that time being, that was my best. But my best being the least, is concerning to think about. [signal=choice_made, "accepting"] => question_3
+
+
+~ question_3
+
+Boss: Interesting… Do you know what I think?
+JOHN: What? 
+Boss: You could have been a great husband, 
+Boss: a great father even.
+Boss: Maybe life could have been much more lenient upon you.
+Boss: But youʼll never know.
+Boss: And thatʼs more disappointing.
+Boss: Not knowing the reaches of your achieved life.
+> Do you think I wanted this?! Do you know how much I sacrificed?! I grinded my ass for a degree, so that my parents will finally be okay with my existence. I never fucked around. It was just me and my hustle to get the “perfect” job, to get a “perfect” wife for my “perfect” life. Well GUESS WHAT?! THAT LIFE AINT KEEPING ME ALIVE NO MORE!! [signal=choice_made, "aggressive"] => question_4
+> I think I reached enough. I wish I couldʼve been there for Mary. I blamed her so much for the baby. But maybe she was our one glimmer in this hellscape of life. I just wanted a life that I could call my own. A life made in my own accord. No external commitments or dredges. It would be just me. Maybe Mary would be more happy. At least she wouldnʼt be stuck with me. And, live a life worthy of calling it hers. [signal=choice_made, "accepting"] => question_4
+
+
+~ question_4
+
+Boss: Death is just a mercy for what you have done.
+Boss: This “hustle”? you call it.
+Boss: This “hustle”, where you poisoned thousands and killed unimaginable number of people?
+Boss: You losing your daughter was a warning.
+Boss: A sign that you should have heeded a long time ago,
+Boss: but no.
+Boss: You thought you could FIX it.
+Boss: Tell me, John-John,
+Boss: does anything look fixed?
+> I can fix it. I need one more chance. I just NEED ONE MORE CHANCE,GODDAMNIT! I was going to my office to fix it. JUST LEMME OUT OF HERE! I can fix it. I know I can. [signal=choice_made, "desperate"] => question_5
+> I don’t need to fix anything. I just need her. I need Mary and need to tell her. I need to apologize to her. Everything is already done. Mary~ oh how I miss you. Oh how I abused you. Mary… Just this one time, and I'll be out of your hair. [signal=choice_made, "accepting"] => question_5
+
+
+~ question_5
+
+Boss: How naive.
+Boss: To think there is any chance that you can do anything.
+Boss: Youʼre dying, John.
+Boss: You cannot fix anything and SHE will not come back.
+Boss: Not anytime soon.
+Boss: You sorry sack of shit, I donʼt know how you are still alive.
+Boss: After that time in the dorm, You shouldn’t have the will to live.
+> This will isnʼt mine to live for - itʼs for the life that I curated. I can still save them. I can show them, even Mary and anyone who doubted me that I can still do this. I donʼt need anyone. Iʼm enough and I know I can beat you. I defeated the last monster by myself. Iʼll show you like Iʼve showed them. [signal=choice_made, "aggressive"] => bad_ending_dialogue
+> But for those who were with me. Mary chose to be with me. My parents chose to be harsh with me. But I can choose my life. And I can chose the people who are with me. If they can choose me, then I am worthy. And If Death deems me unworthy, so be it. At least those, whose will I shoulder, will be enough for me till death. [signal=choice_made, "accepting"] => good_ending_dialogue
+
+
+~ bad_ending_dialogue
+
+Boss: You are a fool to think this way.
+Boss: The fact that you still think to fight,
+Boss: even at the absurdity of Death, disgusts me.
+Boss: You are just an insignificant speck of dirt in this giant magnitude of void.
+Boss: You're existence doesn’t matter.
+Boss: Your college? Your parents? Your “PERFECT” life?
+Boss: If you can assume to achieve perfection,
+Boss: You’re just running a fools errand.
+Boss: Perfectionʼs a myth only Gods achieve.
+=> END
+
+
+~ good_ending_dialogue
+
+Boss: How are you sure of your choices now?
+Boss: Every choice you took,
+Boss: insinuated destruction in one way or the other.
+Boss: How are you sure that your choice here will not lead you to that path?
+Boss: Isnʼt losing your kid enough?
+JOHN: I- I- I miss Mary.
+JOHN: She… was my better half.
+JOHN: For better and worse, I had to leave her.
+JOHN: Not because she wasn’t what I wanted.
+JOHN: But because I couldn’t live up to her.
+JOHN: I couldn’t be the husband she deserved.
+JOHN: I wanted to give her a better life, hence I worked hard.
+JOHN: And nobody mattered for me.
+JOHN: Nobody else…
+Boss: What do you want to do?
+JOHN: I… just want to see her… one last time.
+=> END
+
+
+~ instakill_ending
+
+Boss: okay.
+=> END
