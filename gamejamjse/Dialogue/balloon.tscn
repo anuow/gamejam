@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c4g8e7w16ibm8"]
+[gd_scene load_steps=12 format=3 uid="uid://b5q07xpplb7qj"]
 
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
@@ -76,7 +76,7 @@ func _ready() -> void:
 	add_child(mutation_cooldown)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	progress.visible = not dialogue_label.is_typing and dialogue_line.responses.size() == 0 and not dialogue_line.has_tag(\"voice\")
 
 
@@ -304,6 +304,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 2.0
+offset_right = 12.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qq3yp")
@@ -367,15 +371,15 @@ autoplay = "progress"
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -290.5
-offset_top = -35.0
-offset_right = 290.5
-offset_bottom = 35.0
+anchor_bottom = 0.51900005
+offset_left = -232.0
+offset_top = 84.0
+offset_right = 201.0
+offset_bottom = 156.68796
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
