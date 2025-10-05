@@ -8,6 +8,14 @@ const BULLET_SCENE = preload("res://scenes/bullet.tscn")
 var last_shoot_time : float = 0.0
 const GRAVITY = Vector2(0, 980)
 
+## FALL DAMAGE ## - New variables for fall damage. Tweak these in the Inspector.
+@export var fall_damage_threshold: float = 500.0 # The downward speed needed to take damage.
+@export var fall_damage_amount: int = 50 # The amount of damage to take.
+
+var max_fall_speed: float = 0.0
+var was_in_air: bool = false
+## END FALL DAMAGE VARIABLES ##
+
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var muzzle = $muzzle
 @onready var health_component = $HealthComponent
@@ -27,8 +35,8 @@ func _on_died():
 	get_tree().reload_current_scene() # Remove the character from the game
 
 func _ready() -> void:
-# Connect the health component's signals to functions
-	health_component.died.connect(self._on_died) 
+	# Connect the health component's signals to functions
+	health_component.died.connect(self._on_died)
 	health_component.health_changed.connect(health_bar._on_health_changed)
 	
 	# Initialize the health bar
@@ -40,7 +48,13 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
-	# normal movement code here
+
+	## FALL DAMAGE ## - Part 1: Track the peak fall speed while in the air.
+	if not is_on_floor():
+		if velocity.y > max_fall_speed:
+			max_fall_speed = velocity.y
+		was_in_air = true
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += GRAVITY * delta
@@ -51,7 +65,6 @@ func _physics_process(delta):
 		sprite.play("jump")
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
 	
 	if direction:
@@ -62,7 +75,19 @@ func _physics_process(delta):
 		if is_on_floor():
 			sprite.play("idle")
 
+	# move_and_slide() must be called BEFORE we check for landing.
 	move_and_slide()
+	
+	## FALL DAMAGE ## - Part 2: Check if we just landed and apply damage if necessary.
+	if is_on_floor() and was_in_air:
+		# We have just landed. Check if the fall speed was dangerous.
+		if max_fall_speed > fall_damage_threshold:
+			print("Took fall damage! Fall speed was: ", max_fall_speed)
+			health_component.take_damage(fall_damage_amount)
+		
+		# Reset the trackers for the next jump/fall.
+		was_in_air = false
+		max_fall_speed = 0.0
 	
 func _process(_delta: float) -> void:
 	global_position = global_position.round()
@@ -116,7 +141,6 @@ func _shoot():
 func die():
 	is_dead = true
 	sprite.modulate = Color(1, 0, 0) # optional: tint red to show death
-
 	
 
 	
