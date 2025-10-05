@@ -1,15 +1,15 @@
-[gd_scene load_steps=21 format=3 uid="uid://bi2xo2tpxiuw6"]
+[gd_scene load_steps=19 format=3 uid="uid://bi2xo2tpxiuw6"]
 
 [ext_resource type="PackedScene" uid="uid://ds0dimfr0bdwo" path="res://scenes/torchlight.tscn" id="1_e8ep2"]
 [ext_resource type="Texture2D" uid="uid://brwhpha25i7wb" path="res://assets/sprites/CRAWLING DEPTHS/Tileset.png" id="1_ieorc"]
 [ext_resource type="PackedScene" uid="uid://dy2pvbm1anj03" path="res://scenes/john.tscn" id="2_djdqn"]
 [ext_resource type="Texture2D" uid="uid://d0rtwvobd6ldp" path="res://assets/sprites/Tilesetv3.png" id="2_tct44"]
-[ext_resource type="Script" uid="uid://cdarvnvi2f7u0" path="res://scripts/camera_2d.gd" id="3_tct44"]
 [ext_resource type="PackedScene" uid="uid://c6ut7vmqfvnyf" path="res://scenes/platform.tscn" id="4_0atve"]
 [ext_resource type="PackedScene" uid="uid://docii1mg6bkbb" path="res://scenes/lightbub.tscn" id="5_0atve"]
 [ext_resource type="PackedScene" uid="uid://cp1ca8fh5ge55" path="res://scenes/starman.tscn" id="8_7o323"]
 [ext_resource type="PackedScene" uid="uid://cm1t2mg5pjx8j" path="res://scenes/Enemy.tscn" id="9_v64py"]
 [ext_resource type="PackedScene" uid="uid://dwpusgc7ja7gk" path="res://scenes/spider.tscn" id="10_3ykuj"]
+[ext_resource type="PackedScene" uid="uid://ck8hbvu07tmm7" path="res://scenes/finalboss.tscn" id="11_3ykuj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e8ep2"]
 texture = ExtResource("1_ieorc")
@@ -1249,15 +1249,6 @@ _data = {
 &"platform move": SubResource("Animation_7o323")
 }
 
-[sub_resource type="Gradient" id="Gradient_djdqn"]
-offsets = PackedFloat32Array(0, 0.79333335)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tct44"]
-gradient = SubResource("Gradient_djdqn")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
 [node name="lvl-2" type="Node2D"]
 
 [node name="environment" type="Node" parent="."]
@@ -1396,23 +1387,8 @@ position = Vector2(-41, 5898)
 light_mask = 3
 visibility_layer = 3
 z_index = 5
-position = Vector2(-81, -59)
+position = Vector2(374, 7162)
 fall_damage_threshold = 700.0
-
-[node name="Camera2D" type="Camera2D" parent="John"]
-position = Vector2(1, -8)
-zoom = Vector2(2, 2)
-limit_enabled = false
-position_smoothing_enabled = true
-script = ExtResource("3_tct44")
-
-[node name="PointLight2D" type="PointLight2D" parent="John"]
-position = Vector2(0.9999981, -13.000002)
-rotation = -3.1389706
-scale = Vector2(2.030217, 1.8754928)
-color = Color(0.9315997, 0.90402085, 0, 1)
-range_z_min = -1020
-texture = SubResource("GradientTexture2D_tct44")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.9295145, 0.57141304, 0.47573888, 1)
@@ -1487,3 +1463,6 @@ position = Vector2(-182, 2814)
 
 [node name="spider5" parent="Enemies" instance=ExtResource("10_3ykuj")]
 position = Vector2(1157, 671)
+
+[node name="boss" parent="." instance=ExtResource("11_3ykuj")]
+position = Vector2(924, 7049)
