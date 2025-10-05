@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://ck8hbvu07tmm7"]
+
+[ext_resource type="Script" uid="uid://cik1btokcikq8" path="res://scripts/boss_level.gd" id="1_7kc52"]
+[ext_resource type="Texture2D" uid="uid://l3m5is1il1fn" path="res://assets/sprites/depressionboss-Sheet.png" id="1_tpsqw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v2fh"]
+atlas = ExtResource("1_tpsqw")
+region = Rect2(0, 0, 202, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apw72"]
+atlas = ExtResource("1_tpsqw")
+region = Rect2(202, 0, 202, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxsof"]
+atlas = ExtResource("1_tpsqw")
+region = Rect2(404, 0, 202, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34u66"]
+atlas = ExtResource("1_tpsqw")
+region = Rect2(606, 0, 202, 184)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rjfoy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5v2fh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apw72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxsof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34u66")
+}],
+"loop": true,
+"name": &"head",
+"speed": 2.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_hrcwv"]
+offsets = PackedFloat32Array(0, 0.79333335)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tpsqw"]
+gradient = SubResource("Gradient_hrcwv")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3x23"]
+size = Vector2(324.5, 261.375)
+
+[node name="boss" type="Node2D"]
+script = ExtResource("1_7kc52")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rjfoy")
+animation = &"head"
+autoplay = "head"
+frame = 3
+frame_progress = 0.6927423
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(18.999998, -9.999998)
+rotation = -3.1389706
+scale = Vector2(3.0244572, 2.788933)
+color = Color(1, 1, 0.8627451, 1)
+range_z_min = -1020
+texture = SubResource("GradientTexture2D_tpsqw")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(-39.00001, -6.999996)
+rotation = -3.1389706
+scale = Vector2(3.0244572, 2.788933)
+color = Color(1, 1, 0.8627451, 1)
+range_z_min = -1020
+texture = SubResource("GradientTexture2D_tpsqw")
+
+[node name="DialogueTriggerArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueTriggerArea"]
+position = Vector2(-100.75, 2.3125)
+shape = SubResource("RectangleShape2D_o3x23")
+
+[connection signal="body_entered" from="DialogueTriggerArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="DialogueTriggerArea" to="." method="_on_dialogue_trigger_area_body_entered"]
