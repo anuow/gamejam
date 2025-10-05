@@ -1,7 +1,8 @@
-[gd_scene load_steps=44 format=3 uid="uid://prydpvep1syi"]
+[gd_scene load_steps=45 format=3 uid="uid://prydpvep1syi"]
 
 [ext_resource type="Texture2D" uid="uid://b8f3fown3q4sg" path="res://assets/sprites/afternoon.png" id="1_d3hpb"]
 [ext_resource type="Script" uid="uid://bs8rxxdd7lq24" path="res://scripts/hospital_afternoon.gd" id="1_nfp0d"]
+[ext_resource type="PackedScene" uid="uid://drped672xucwt" path="res://scenes/pause_menu.tscn" id="2_7sj3w"]
 [ext_resource type="Texture2D" uid="uid://ylco6wexrmiw" path="res://assets/sprites/Caminando.png" id="2_rsosu"]
 [ext_resource type="Texture2D" uid="uid://dmjvjdvi4ws6q" path="res://assets/sprites/Caminando Rt.png" id="3_jujiy"]
 [ext_resource type="Texture2D" uid="uid://61542tof3r22" path="res://assets/sprites/run/idle/idle1.png" id="5_yy8cb"]
@@ -272,6 +273,33 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_q3d7d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WifeAnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(303, 416.00003)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WifeAnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="Animation" id="Animation_mgdfr"]
 resource_name = "enter"
 length = 1.5
@@ -300,33 +328,6 @@ tracks/1/keys = {
 "values": [1, 2, 3, 4, 5, 6, 1, 2, 0]
 }
 
-[sub_resource type="Animation" id="Animation_q3d7d"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WifeAnimatedSprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(303, 416.00003)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WifeAnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_34t46"]
 _data = {
 &"RESET": SubResource("Animation_q3d7d"),
@@ -342,6 +343,8 @@ offset_bottom = 652.0
 script = ExtResource("1_nfp0d")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_7sj3w")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(574.49994, 330.00003)

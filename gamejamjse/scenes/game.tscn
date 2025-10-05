@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dv5eftygisej7"]
+[gd_scene load_steps=20 format=3 uid="uid://dv5eftygisej7"]
 
 [ext_resource type="PackedScene" uid="uid://dy2pvbm1anj03" path="res://scenes/john.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cm1t2mg5pjx8j" path="res://scenes/Enemy.tscn" id="2_0tnpc"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://hu1jna3x3bps" path="res://scenes/animatable_body_2d.tscn" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://cytpc2oth5ya2" path="res://scenes/boss_room_trigger.tscn" id="11_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://mxbrt3q8qept" path="res://assets/sprites/Screenshot (64).png" id="12_dinhu"]
+[ext_resource type="PackedScene" uid="uid://drped672xucwt" path="res://scenes/pause_menu.tscn" id="13_kvuet"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvuet"]
 texture = ExtResource("12_dinhu")
@@ -682,3 +683,7 @@ position = Vector2(2291, 10)
 [node name="end" type="CollisionShape2D" parent="end"]
 position = Vector2(6477, -582)
 shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("13_kvuet")]

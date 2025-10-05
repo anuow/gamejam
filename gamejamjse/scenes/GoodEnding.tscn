@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://00aas76yhmh1"]
+[gd_scene load_steps=7 format=3 uid="uid://00aas76yhmh1"]
 
 [ext_resource type="Script" uid="uid://benrk2hoy3fj7" path="res://scripts/good_ending.gd" id="1_h2f4d"]
 [ext_resource type="Texture2D" uid="uid://ddt0y6nakr21n" path="res://scenes/morning.png" id="1_mv74p"]
 [ext_resource type="Texture2D" uid="uid://61542tof3r22" path="res://assets/sprites/run/idle/idle1.png" id="2_h2f4d"]
+[ext_resource type="PackedScene" uid="uid://drped672xucwt" path="res://scenes/pause_menu.tscn" id="4_dojhf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dojhf"]
 atlas = ExtResource("2_h2f4d")
@@ -38,3 +39,7 @@ position = Vector2(527, 369)
 scale = Vector2(7.5468764, 7.300782)
 sprite_frames = SubResource("SpriteFrames_0tuvi")
 frame_progress = 0.5306417
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_dojhf")]

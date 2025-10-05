@@ -1,4 +1,33 @@
-[gd_scene format=3 uid="uid://dau6u3p37601h"]
+[gd_scene load_steps=8 format=3 uid="uid://dau6u3p37601h"]
+
+[ext_resource type="Script" uid="uid://cex7lnq75s7pl" path="res://scripts/end_credits.gd" id="1_r5lg4"]
+[ext_resource type="Texture2D" uid="uid://bvhkg4uucj76o" path="res://Dialogue/Untitled.png" id="2_723fm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ph4ia"]
+texture = ExtResource("2_723fm")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxhly"]
+bg_color = Color(11.98903, 10.994683, 14.806348, 0.15686275)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xh8sp"]
+bg_color = Color(0.8, 0.7294118, 1, 0.26666668)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t42jo"]
+bg_color = Color(0.5882353, 0.5294118, 0.7490196, 0.15686275)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ei3d0"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,30 +36,50 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r5lg4")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -39.0
+offset_top = -58.0
+offset_right = 1222.0
+offset_bottom = 694.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ph4ia")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 7.0
-offset_top = 28.0
+offset_top = 34.0
 offset_right = 1145.0
-offset_bottom = 585.0
+offset_bottom = 591.0
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
-text = "Game Design: Your Name
-Programming: Your Name
-Art & Animation: Artist Name
-Music: Composer Name
-Special Thanks: ...
-"
+text = "This game is made by 3 people who knew jackshit about game development and did everything while learning about it simultaneously. So yea, please be nice :) 
+Game Development and Debugging- Rishi/s3pt5mber and anuo_w
+Level designing- WarriorNexonet and Rishi/s3pt5mber
+Story and Dialogue Writing- WarriorNexonet
+Background Music and SFX- Rishi/s3pt5mber
+Art Direction- anuo_w
+Hope you enjoyed it!
+Thank you for playing our game <3"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="MainMenu" type="Button" parent="."]
 layout_mode = 0
-offset_left = 949.0
-offset_top = 596.0
-offset_right = 1149.0
-offset_bottom = 645.0
+offset_left = 376.0
+offset_top = 573.0
+offset_right = 757.0
+offset_bottom = 643.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_hxhly")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xh8sp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t42jo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ei3d0")
 text = "Main Menu"
+
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]
