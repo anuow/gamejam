@@ -1,31 +1,49 @@
 extends Control
 
-@onready var nurse_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var nurse_sprite: AnimatedSprite2D = $NurseAnimatedSprite2D
+@onready var nurse_anim_player: AnimationPlayer = $NurseAnimationPlayer
+
+@onready var wife_sprite: AnimatedSprite2D = $WifeAnimatedSprite2D
+@onready var wife_anim_player: AnimationPlayer = $WifeAnimationPlayer
 
 func _ready():
-	animation_player.play("RESET")
-	await animation_player.animation_finished
+	# Hide wife at start
+	wife_sprite.visible = false
 	
-	var dialogue_resource = load("res://dialogue/HP_Afternoon.dialogue")
-	print("Starting dialogue balloon...")
-	DialogueManager.show_dialogue_balloon(dialogue_resource)
-	DialogueManager.connect("dialogue_ended", Callable(self, "dialogue_ended"))
+	# Nurse enters
+	nurse_anim_player.play("RESET")
+	await nurse_anim_player.animation_finished
+	
+	# Load and show nurse dialogue
+	var nurse_dialogue = load("res://Dialogue/HP_Afternoon.dialogue")
+	DialogueManager.show_dialogue_balloon(nurse_dialogue)
+	DialogueManager.connect("dialogue_ended", Callable(self, "_on_nurse_dialogue_ended"))
 
+func _on_nurse_dialogue_ended(resource: DialogueResource):
+	if resource.resource_path.ends_with("HP_Afternoon.dialogue"):
+		# Nurse leaves
+		_nurse_leave()
+	elif resource.resource_path.ends_with("HP_Afternoon2.dialogue"):
+		# Patient dialogue finished, wife enters
+		_wife_enter()
+	elif resource.resource_path.ends_with("HP_Afternoon3.dialogue"):
+		# Wife dialogue finished, change scene
+		SceneManager.change_scene("res://scenes/game.tscn")
 
-# --- THIS IS THE MODIFIED FUNCTION ---
-func dialogue_ended(_resource: DialogueResource):
-	print("Dialogue ended. Nurse is leaving...")
-
-	# 1. Play the "leave" animation for the nurse
-	animation_player.play("leave")
-
-	# 2. Wait here until the animation is completely finished
-	await animation_player.animation_finished
-
-	# 3. Once finished, make the sprite invisible
+func _nurse_leave():
+	nurse_anim_player.play("leave")
+	await nurse_anim_player.animation_finished
 	nurse_sprite.visible = false
+	
+	# Load and show patient dialogue
+	var patient_dialogue = load("res://Dialogue/HP_Afternoon2.dialogue")
+	DialogueManager.show_dialogue_balloon(patient_dialogue)
+	# Already connected dialogue_ended signal continues to listen
 
-	# 4. NOW transition to the next scene
-	print("Transitioning to anxiety...")
-	SceneManager.change_scene("res://scenes/game.tscn")
+func _wife_enter():
+	wife_sprite.visible = true
+	wife_anim_player.play("enter")
+	await wife_anim_player.animation_finished
+	
+	var wife_dialogue = load("res://Dialogue/HP_Afternoon3.dialogue")
+	DialogueManager.show_dialogue_balloon(wife_dialogue)

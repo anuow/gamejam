@@ -1,9 +1,16 @@
-[gd_scene load_steps=26 format=3 uid="uid://prydpvep1syi"]
+[gd_scene load_steps=44 format=3 uid="uid://prydpvep1syi"]
 
 [ext_resource type="Texture2D" uid="uid://b8f3fown3q4sg" path="res://assets/sprites/afternoon.png" id="1_d3hpb"]
 [ext_resource type="Script" uid="uid://bs8rxxdd7lq24" path="res://scripts/hospital_afternoon.gd" id="1_nfp0d"]
 [ext_resource type="Texture2D" uid="uid://ylco6wexrmiw" path="res://assets/sprites/Caminando.png" id="2_rsosu"]
 [ext_resource type="Texture2D" uid="uid://dmjvjdvi4ws6q" path="res://assets/sprites/Caminando Rt.png" id="3_jujiy"]
+[ext_resource type="Texture2D" uid="uid://61542tof3r22" path="res://assets/sprites/run/idle/idle1.png" id="5_yy8cb"]
+[ext_resource type="Texture2D" uid="uid://3pqvfsj8fet0" path="res://assets/sprites/run/run1.png" id="6_7sj3w"]
+[ext_resource type="Texture2D" uid="uid://dejva4a2m8qdx" path="res://assets/sprites/run/run2.png" id="7_c5qwt"]
+[ext_resource type="Texture2D" uid="uid://5c566rhuyg0s" path="res://assets/sprites/run/run3.png" id="8_fgfv6"]
+[ext_resource type="Texture2D" uid="uid://cljv71bmbn1jq" path="res://assets/sprites/run/run4.png" id="9_oc5q8"]
+[ext_resource type="Texture2D" uid="uid://78rrytgl5c30" path="res://assets/sprites/run/run5.png" id="10_013lu"]
+[ext_resource type="Texture2D" uid="uid://dn0xusfo8fub6" path="res://assets/sprites/run/run6.png" id="11_lcqjm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gadw1"]
 atlas = ExtResource("2_rsosu")
@@ -135,7 +142,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("NurseAnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -147,7 +154,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/path = NodePath("NurseAnimatedSprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -163,7 +170,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/path = NodePath("NurseAnimatedSprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -175,7 +182,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/path = NodePath("NurseAnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -187,7 +194,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/2/path = NodePath("NurseAnimatedSprite2D:flip_h")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -208,6 +215,124 @@ _data = {
 &"walk": SubResource("Animation_uyk6w")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd2mt"]
+atlas = ExtResource("5_yy8cb")
+region = Rect2(3, 7, 52, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wddn1"]
+atlas = ExtResource("6_7sj3w")
+region = Rect2(3, 7, 52, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0aed4"]
+atlas = ExtResource("7_c5qwt")
+region = Rect2(3, 7, 52, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sfwq"]
+atlas = ExtResource("8_fgfv6")
+region = Rect2(3, 7, 52, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t37eg"]
+atlas = ExtResource("9_oc5q8")
+region = Rect2(3, 7, 52, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs0wg"]
+atlas = ExtResource("10_013lu")
+region = Rect2(3, 7, 52, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsrys"]
+atlas = ExtResource("11_lcqjm")
+region = Rect2(3, 7, 52, 57)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ryme6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jd2mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wddn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0aed4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sfwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t37eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bs0wg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsrys")
+}],
+"loop": true,
+"name": &"enter",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_mgdfr"]
+resource_name = "enter"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WifeAnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(303, 416.00003), Vector2(493, 420)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WifeAnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7, 0.9, 1, 1.2, 1.35, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 1, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_q3d7d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WifeAnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(303, 416.00003)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WifeAnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_34t46"]
+_data = {
+&"RESET": SubResource("Animation_q3d7d"),
+&"enter": SubResource("Animation_mgdfr")
+}
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -223,13 +348,13 @@ position = Vector2(574.49994, 330.00003)
 scale = Vector2(2.8825, 4.5138884)
 texture = ExtResource("1_d3hpb")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="NurseAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(308.00003, 514)
 scale = Vector2(1.1953125, 1.613281)
 sprite_frames = SubResource("SpriteFrames_xt2s8")
 animation = &"enter"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="NurseAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_840f5")
 }
@@ -242,3 +367,15 @@ offset_left = 1.0
 offset_top = 557.0
 offset_right = 1154.0
 offset_bottom = 640.246
+
+[node name="WifeAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(303, 416.00003)
+scale = Vector2(6.25, 6.7982454)
+sprite_frames = SubResource("SpriteFrames_ryme6")
+animation = &"enter"
+frame = 1
+
+[node name="WifeAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_34t46")
+}

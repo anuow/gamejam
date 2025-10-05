@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://d10o57v8qbjg2"
+path="res://.godot/imported/HP_Night.dialogue-eeee94cf94eaea213e27e1a37cfcf097.tres"
+
+[deps]
+
+source_file="res://Dialogue/HP_Night.dialogue"
+dest_files=["res://.godot/imported/HP_Night.dialogue-eeee94cf94eaea213e27e1a37cfcf097.tres"]
+
+[params]
+
+defaults=true
