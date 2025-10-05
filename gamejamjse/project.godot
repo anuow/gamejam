@@ -27,6 +27,7 @@ runtime/balloon_path="uid://b5q07xpplb7qj"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
@@ -66,7 +67,7 @@ escape={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/bossfight.dialogue", "res://dialogue/good_ending.dialogue", "res://dialogue/HP_Afternoon.dialogue", "res://dialogue/HP_Afternoon2.dialogue", "res://dialogue/HP_Afternoon3.dialogue", "res://dialogue/HP_Night.dialogue", "res://dialogue/HP_Night2.dialogue", "res://dialogue/BadEnding.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/bossfight.dialogue", "res://dialogue/good_ending.dialogue", "res://dialogue/HP_Afternoon.dialogue", "res://dialogue/HP_Afternoon2.dialogue", "res://dialogue/HP_Afternoon3.dialogue", "res://dialogue/HP_Night.dialogue", "res://dialogue/HP_Night2.dialogue", "res://dialogue/BadEnding.dialogue", "res://Dialogue/BadEnding.dialogue", "res://Dialogue/bossfight.dialogue", "res://Dialogue/good_ending.dialogue", "res://Dialogue/HP_Afternoon2.dialogue", "res://Dialogue/HP_Afternoon3.dialogue", "res://Dialogue/HP_Afternoon.dialogue", "res://Dialogue/HP_Night2.dialogue", "res://Dialogue/HP_Night.dialogue")
 
 [rendering]
 
