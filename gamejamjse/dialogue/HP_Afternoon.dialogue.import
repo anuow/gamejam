@@ -3,13 +3,13 @@
 importer="dialogue_manager"
 importer_version=15
 type="Resource"
-uid="uid://djihue52f14ai"
-path="res://.godot/imported/HP_Afternoon.dialogue-f09debf74ff714b6cabcc10454f27793.tres"
+uid="uid://cta5k38qjjfsm"
+path="res://.godot/imported/HP_Afternoon.dialogue-c484e44f14ef3a25deb5a9a35f9c13bb.tres"
 
 [deps]
 
-source_file="res://dialogue/HP_Afternoon.dialogue"
-dest_files=["res://.godot/imported/HP_Afternoon.dialogue-f09debf74ff714b6cabcc10454f27793.tres"]
+source_file="res://Dialogue/HP_Afternoon.dialogue"
+dest_files=["res://.godot/imported/HP_Afternoon.dialogue-c484e44f14ef3a25deb5a9a35f9c13bb.tres"]
 
 [params]
 
