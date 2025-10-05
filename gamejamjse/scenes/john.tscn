@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dy2pvbm1anj03"]
+[gd_scene load_steps=26 format=3 uid="uid://dy2pvbm1anj03"]
 
 [ext_resource type="Script" uid="uid://bu165ynmauuca" path="res://scripts/john.gd" id="1_r0ebv"]
 [ext_resource type="Texture2D" uid="uid://b7qad8vjn38xp" path="res://assets/sprites/character-Sheet.png" id="2_r0ebv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ch3w8q6lgyoea" path="res://assets/sprites/health bar/blackh.png" id="7_mxu6f"]
 [ext_resource type="Texture2D" uid="uid://dd27lxrn1pvti" path="res://assets/sprites/health bar/red.png" id="8_5sr6c"]
 [ext_resource type="Script" uid="uid://be2viqv206as" path="res://scripts/texture_progress_bar.gd" id="9_j1e1n"]
+[ext_resource type="Script" uid="uid://cdarvnvi2f7u0" path="res://scripts/camera_2d.gd" id="11_j1e1n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5sr6c"]
 atlas = ExtResource("2_r0ebv")
@@ -108,11 +109,19 @@ size = Vector2(8, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxisy"]
 size = Vector2(8, 26.5)
 
+[sub_resource type="Gradient" id="Gradient_djdqn"]
+offsets = PackedFloat32Array(0, 0.79333335)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_31jeo"]
+gradient = SubResource("Gradient_djdqn")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="John" type="CharacterBody2D" groups=["player"]]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_r0ebv")
-shoot_rate = 0.2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
@@ -151,3 +160,18 @@ shape = SubResource("RectangleShape2D_5sr6c")
 visibility_layer = 2
 position = Vector2(1, -13.75)
 shape = SubResource("RectangleShape2D_uxisy")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0.9999981, -13.000002)
+rotation = -3.1389706
+scale = Vector2(2.030217, 1.8754928)
+color = Color(0.9315997, 0.90402085, 0, 1)
+range_z_min = -1020
+texture = SubResource("GradientTexture2D_31jeo")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, -8)
+zoom = Vector2(2, 2)
+limit_enabled = false
+position_smoothing_enabled = true
+script = ExtResource("11_j1e1n")
