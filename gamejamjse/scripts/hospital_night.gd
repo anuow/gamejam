@@ -7,7 +7,6 @@ func _ready():
 	var wife_dialogue = load("res://Dialogue/HP_Night.dialogue")
 	DialogueManager.show_dialogue_balloon(wife_dialogue)
 	DialogueManager.connect("dialogue_ended", Callable(self, "_on_dialogue_ended"))
-	MusicManager.play_music(preload("res://Music/scene_2.ogg"))
 
 func _on_dialogue_ended(resource: DialogueResource):
 	if resource.resource_path.ends_with("HP_Night.dialogue"):

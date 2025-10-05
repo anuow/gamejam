@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bfftqga5r1sn8"]
+[gd_scene load_steps=17 format=3 uid="uid://bfftqga5r1sn8"]
 
 [ext_resource type="Script" uid="uid://dgtrl4eii7w4e" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://bsp7uhdvm2sg8" path="res://assets/menu background.png" id="1_l6cm7"]
 [ext_resource type="FontFile" uid="uid://d262tbxj5xmoq" path="res://assets/yoster.ttf" id="2_ekxnf"]
+[ext_resource type="AudioStream" uid="uid://beqkegfjf5gkm" path="res://assets/music/Clair Obscur_ Expedition 33 Lumière [Official Music Video].mp3" id="4_wu84c"]
 [ext_resource type="Script" uid="uid://buwusedhvutqa" path="res://scripts/audio_control.gd" id="5_8ln24"]
 [ext_resource type="Script" uid="uid://bbr77jfo5ftvn" path="res://scripts/fullscreen_control.gd" id="6_rtw2f"]
 
@@ -130,6 +131,11 @@ theme_override_font_sizes/font_size = 81
 text = "GAME NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_wu84c")
+autoplay = true
+bus = &"Music"
 
 [node name="Options" type="Panel" parent="."]
 layout_mode = 1
