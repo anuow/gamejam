@@ -4,12 +4,13 @@ extends Control
 @onready var main_buttons: VBoxContainer = $MainButtons
 @onready var options: Panel = $Options
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _ready() -> void:
 	main_buttons.visible = true
 	options.visible = false
+	MusicManager.play_music(preload("res://Music/realmainmusic.ogg"))
 
 
 func _on_start_pressed() -> void:
