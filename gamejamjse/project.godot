@@ -11,17 +11,21 @@ config_version=5
 [application]
 
 config/name="gamejamjse"
-run/main_scene="uid://bi2xo2tpxiuw6"
+run/main_scene="uid://bfftqga5r1sn8"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+SceneManager="res://scripts/scene_manager.gd"
+DialogueManager="res://addons/dialogue_manager/dialogue_manager.gd"
+
+[dialogue_manager]
+
+runtime/balloon_path="res://Dialogue/balloon.tscn"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
