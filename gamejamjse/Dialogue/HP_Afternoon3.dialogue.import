@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://n47au4sfp44o"
+path="res://.godot/imported/HP_Afternoon3.dialogue-eda6c672c2e2fe2ad06f43dd804bbbe4.tres"
+
+[deps]
+
+source_file="res://Dialogue/HP_Afternoon3.dialogue"
+dest_files=["res://.godot/imported/HP_Afternoon3.dialogue-eda6c672c2e2fe2ad06f43dd804bbbe4.tres"]
+
+[params]
+
+defaults=true

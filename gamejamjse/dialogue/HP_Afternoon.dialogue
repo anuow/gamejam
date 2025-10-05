@@ -1,11 +1,37 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+
+Nurse: Mr. Grey, hereʼs your food.
+*No Answer*
+
+Nurse: how are you holding up?
+John: holding good enough for a dead man.
+Nurse: now donʼt say that.  
+Nurse: There is the slight chance that you will recover…
+John: [wave]SHUT UP, BITCH! YOU AINʼT DYING HERE![/wave]
+Nurse: Lemme check your history- 
+*picks up John's patient board*
+
+Nurse: you have been here for a while- 
+Nurse: Now, what ails y- 
+Nurse: oh… 
+Nurse: Thatʼs… um… 
+Nurse: Iʼm sorry. I didnʼt know.
+*Awkward Silence*
+John: Wanna know something funny?
+Nurse: hmm?
+John: They gave me 6 months.
+John: But I survived. 
+John: Iʼm not letting these bastards get the edge on me.
+Nurse: You are resilient, Iʼll give you that.
+John: it hurts…
+Nurse: What does?
+John: everything…
+John: I- I- dunno how to describe this but this painkillers ainʼt workin on me lady. 
+John: Gimme something stronger.
+Nurse: you are already on top of you painkil-
+John: [wave][speed=1.2]DID I FUCKIN STUTTER? I NEED PAINKILLERS NOW!![/wave]
+Nurse: calm down please! 
+Nurse: I- I- Iʼll ask the doctors and-
+John: [wave]GET THE FUCK OUT IF YOU CANT HELP ME![/wave]
+
 => END
